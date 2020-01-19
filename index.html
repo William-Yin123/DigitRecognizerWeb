@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digit Recognizer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body onclick="init()">
+    <script>
+        load_model(e => {
+            console.log(e);
+            document.getElementById("info").innerHTML = "Failed to load model";
+        }, () => {
+            document.getElementById("btnCheck").disabled = false;
+        });
+    </script>
+    <div id="container">
+        <h2>Digit Recognizer</h2>
+        <canvas id="canvas" width="280" height="280" style="border:1px solid #000000;"></canvas>
+        <p id="info">Please draw a digit in the above canvas.</p>
+        <div id="buttons">
+            <button id="btnCheck" onclick="classify()" disabled="true">Check</button>
+            <button id="btnRedraw" onclick="erase()">Redraw</button>
+        </div>
+        <canvas id="canvas2" width="28" height="28" style="border: 1px solid #000000;"></canvas>
+    </div>
+</body>
+</html>
