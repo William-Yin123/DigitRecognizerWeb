@@ -55,6 +55,7 @@ function color(obj) {
     if (x == "white") y = 14;
     else y = 2;
 }
+
 function draw() {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
